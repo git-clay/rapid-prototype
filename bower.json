@@ -1,0 +1,22 @@
+{
+  "name": "rapid-prototype",
+  "description": "![house](https://cloud.githubusercontent.com/assets/7833470/12465814/e9ae781e-bf84-11e5-8de0-6a1d952e5fda.gif)",
+  "main": "seed.js",
+  "authors": [
+    "git-clay <ce.smith5525@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/git-clay/rapid-prototype",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "bootstrap": "^3.3.7"
+  }
+}
