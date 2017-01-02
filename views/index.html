@@ -1,80 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="scripts/bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
-
-		<!-- jQuery -->
-	<script type="scripts/bower_components/jquery/dist/jquery.min.js"></script>
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="scripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<!-- angular -->
-	  <script src="scripts/bower_components/angular/angular.min.js"></script>
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery -->
+    <script type="scripts/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="scripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="scripts/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- angular -->
+    <script src="scripts/bower_components/angular/angular.min.js"></script>
     <script src="scripts/bower_components/angular-route/angular-route.min.js"></script>
-
-
-	<script src="scripts/front.js"></script>
-</head>
-<body>
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="/">mo+iv</a>
-	    </div>
-
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	      	<li><a href="#">Docs</a></li>
-	        <li><a href="/apis">APIs Used</a></li>
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
-	          <ul class="dropdown-menu">
-	            <li><a href="#">GET</a></li>
-	            <li><a href="#">PUT</a></li>
-	            <li><a href="#">UPDATE</a></li>
-	            <li role="separator" class="divider"></li>
-	            <li><a href="#" class="bg-danger">DELETE</a></li>
-	          </ul>
-	        </li>
-	       <% if (currentUser) {%>
-			<li><a href="/questionaire">Daily Questionaire</a></li>
-			 <% } %>
-
-	        <li class="pull-right">
-	      </ul>
-	      <ul class="pull-right nav navbar-nav">
-	        <% if (currentUser) {%>
-	        <li><a href="/logout">Logout <%= currentUser.local.email %></a></li>
-	          <% } else { %>
-            <li><a href="/login">Login</a></li>
-            <li class="pull-right"><a href="/register">Register</a></li>
-               <% } %>
-	      
-	      </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
-
-
-
-
-
-
-
-
-</body>
+    <script src="scripts/front.js"></script>
+    <script src="scripts/controllers/circuitController.js"></script>
+  </head>
+  <body ng-app='CircuitApp'>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Circuit</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Docs</a></li>
+            <li><a href="/apis">APIs Used</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">GET</a></li>
+                <li><a href="#">PUT</a></li>
+                <li><a href="#">UPDATE</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#" class="bg-danger">DELETE</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <h1>Circuit Maker</h1>
+    <div class="container" ng-controller="CircuitController as circuit">
+      <table class="table" ng-repeat='CircuitGrid in circuit'>
+        <tr ng-repeat='cir in CircuitGrid'>
+          <td ng-repeat='n in cir'>
+          	  <button ng-click='btn(cir.one)'>{{cir.one}}</button>
+	          <button ng-click='btn(cir.two)'>{{cir.two}}</button>
+	          <button ng-click='btn(cir.three)'>{{cir.three}}</button>
+	          <button ng-click='btn(cir.four)'>{{cir.four}}</button>
+	          <button ng-click='btn(cir.five)'>{{cir.five}}</button>
+	          <button ng-click='btn(cir.six)'>{{cir.six}}</button>
+	          <button ng-click='btn(cir.seven)'>{{cir.seven}}</button>
+	          <button ng-click='btn(cir.eight)'>{{cir.eight}}</button>
+	          <button ng-click='btn(cir.nine)'>{{cir.nine}}</button>
+	          <button ng-click='btn(cir.ten)'>{{cir.ten}}</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
 </html>
